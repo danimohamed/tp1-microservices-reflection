@@ -17,23 +17,23 @@ class DaoTest {
     }
 
     @Test
-    @DisplayName("DaoImplMemoire retourne la valeur fixe 42.0")
-    void daoImplMemoireRetourneQuaranteDeux() {
-        assertEquals(42.0, new DaoImplMemoire().getValue(), 0.0001);
+    @DisplayName("DaoImpl2 retourne la valeur fixe 42.0")
+    void daoImpl2RetourneQuaranteDeux() {
+        assertEquals(42.0, new DaoImpl2().getValue(), 0.0001);
     }
 
     @Test
     @DisplayName("Les deux implementations respectent le contrat IDao")
     void implementationsRespectentLeContrat() {
         assertTrue(IDao.class.isAssignableFrom(DaoImpl.class));
-        assertTrue(IDao.class.isAssignableFrom(DaoImplMemoire.class));
+        assertTrue(IDao.class.isAssignableFrom(DaoImpl2.class));
     }
 
     @Test
     @DisplayName("Le constructeur par defaut public existe (requis par la reflexion)")
     void constructeurParDefautPresent() throws Exception {
         assertNotNull(DaoImpl.class.getDeclaredConstructor());
-        assertNotNull(DaoImplMemoire.class.getDeclaredConstructor());
+        assertNotNull(DaoImpl2.class.getDeclaredConstructor());
     }
 
     @Test

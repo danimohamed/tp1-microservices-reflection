@@ -25,10 +25,10 @@ class Presentation2Test {
     }
 
     @Test
-    @DisplayName("config-memoire.txt pointe vers la seconde implementation")
-    void configMemoirePointeVersAutreDao() throws Exception {
-        String[] names = Presentation2.loadClassNames("config-memoire.txt");
-        assertEquals("dao.DaoImplMemoire", names[0]);
+    @DisplayName("config-dao2.txt pointe vers DaoImpl2")
+    void configDao2PointeVersAutreDao() throws Exception {
+        String[] names = Presentation2.loadClassNames("config-dao2.txt");
+        assertEquals("dao.DaoImpl2", names[0]);
     }
 
     @Test
@@ -66,9 +66,9 @@ class Presentation2Test {
     }
 
     @Test
-    @DisplayName("Chaine complete config-memoire.txt -> 84.0 sans recompilation")
-    void chaineCompleteAvecAutreConfig() throws Exception {
-        String[] names = Presentation2.loadClassNames("config-memoire.txt");
+    @DisplayName("Chaine complete config-dao2.txt -> 84.0 sans recompilation")
+    void chaineCompleteAvecDao2() throws Exception {
+        String[] names = Presentation2.loadClassNames("config-dao2.txt");
         Object dao = Presentation2.instantiateClass(names[0]);
         Object metier = Presentation2.instantiateClass(names[1]);
         Presentation2.injectDependency(metier, "setDao", dao);

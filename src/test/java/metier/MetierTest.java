@@ -1,7 +1,7 @@
 package metier;
 
 import dao.DaoImpl;
-import dao.DaoImplMemoire;
+import dao.DaoImpl2;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -22,9 +22,9 @@ class MetierTest {
 
     @Test
     @DisplayName("calcul() reflete la nouvelle implementation : 42 -> 84")
-    void calculAvecAutreDao() {
+    void calculAvecDaoImpl2() {
         MetierImpl metier = new MetierImpl();
-        metier.setDao(new DaoImplMemoire());
+        metier.setDao(new DaoImpl2());
         assertEquals(84.0, metier.calcul(), 0.0001);
     }
 
